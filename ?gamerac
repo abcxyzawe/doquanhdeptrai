@@ -1,1 +1,40 @@
-game.Players.LocalPlayer:Kick("Script dont here")
+
+
+local DiscordLib = loadstring(game:HttpGet"https://raw.githubusercontent.com/dawid-scripts/UI-Libs/main/discord%20lib.txt")()
+
+local win = DiscordLib:Window("Check whitelist")
+
+local serv = win:Server("Check", "")
+
+local tgls = serv:Channel("Main")
+
+
+tgls:Textbox("Webhook", "Type here!", true, function(t)
+    getgenv().Key = t
+end)
+
+
+tgls:Button("Check", function(t)
+
+    local plr = game.Players.LocalPlayer
+    local whitelist = false
+    local function Check(a, b)
+      if a == b then
+          return true
+      else
+          return false
+      end
+    end
+    
+    if Check(tostring("newscriptkeyasf3234"), tostring(getgenv().Key)) or Check(tostring("Concacsieubu"), tostring(getgenv().Key)) or Check(tostring("Concusieutokhonglo"), tostring(getgenv().Key)) or Check(tostring("Concusieutokhonglopag"), tostring(getgenv().Key)) or Check(tostring("Nhocacsieuto"), tostring(getgenv().Key)) then
+        whitelist = true
+        loadstring(game:HttpGet"https://raw.githubusercontent.com/pipipipipia23/aahsdasd-/main/asgdas%20vcv")()
+    else
+        print("Auth fail")
+        plr:Kick("Buy ")
+    end
+    
+    repeat wait() until whitelist
+    print("Auth success")
+
+end)
